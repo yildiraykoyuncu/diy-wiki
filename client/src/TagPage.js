@@ -5,18 +5,20 @@ const PAGE_STATE_LOADING = 'loading';
 const PAGE_STATE_OK = 'ok';
 const PAGE_STATE_ERROR = 'error';
 
-export default class AllTagsPage extends React.Component {
+export default class TagPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pageState: PAGE_STATE_LOADING, tags: [] };
+    this.state = { pageState: PAGE_STATE_LOADING, tag: null, pages: [] };
   }
 
   async componentDidMount() {
-    const res = await fetch('http://localhost:5000/api/tags/all');
+    const { tag } = this.props.match.params;
+    const res = await fetch(`/api/tags/${tag}`);
     const json = await res.json();
     if (json.status && json.status === 'ok') {
-      const tags = json.tags;
-      this.setState({ pageState: PAGE_STATE_OK, tags });
+      const pages = json.pages;
+      console.log(json);
+      this.setState({ pageState: PAGE_STATE_OK, tag, pages });
     } else {
       this.setState({
         pageState: PAGE_STATE_ERROR,
@@ -26,17 +28,17 @@ export default class AllTagsPage extends React.Component {
   }
 
   render() {
-    const { pageState, tags, errorMessage } = this.state;
-
+    const { pageState, tag, pages, errorMessage } = this.state;
+    console.log(this.state);
     return (
       <div className="container page">
         {pageState === PAGE_STATE_OK && (
           <div className="page__body">
-            <h1>All Tags</h1>
+            <h1>All pages with #{tag}</h1>
             <ul>
-              {tags.map(tag => (
+              {pages.map(slug => (
                 <li>
-                  <Link to={`/tags/${tag}`}>#{tag}</Link>
+                  <Link to={`/wiki/${slug}`}>{slug}</Link>
                 </li>
               ))}
             </ul>
