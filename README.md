@@ -2,7 +2,10 @@
 
 A nifty little site that allows you to create, read, and update pages in a markdown wiki.  We've provided most of the code for you. All you need to do is write the code that sits between the server and your file system, reading, writing and updating files saved on your computer.
 
+You coaches will share a link to a live, working version of this wiki so you can know how yours should work when it's finished.
+
 ### Index
+
 * [Learning Objectives](#learning-objectives)
 * [Getting Started](#getting-started)
     * [Running the API](#running-the-api)
@@ -103,6 +106,8 @@ __Running the Frontend__
 ## Your Task
 
 What you need to do to complete this assignment is write the 5 routes described in the `./wiki-server/server.js' file.  You'll know your work is finished when you can use every button, link, and page in your frontend!
+
+We recommend always keeping the live demo open as you develop to be sure you keep the final product in mind.  You can find the link in a pinned message on your class' Slack channel.
 
 ### Get an Existing Page
 
