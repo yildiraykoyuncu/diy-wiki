@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const util = require('util');
-const fs = require('fs').promises;
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
