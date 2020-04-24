@@ -71,5 +71,11 @@ app.get('/', (req, res) => {
 //  file names do not have .md, just the name!
 // failure response: no failure response
 
+app.get('/api/page/all', async (req, res) => {
+  const names = await fs.readdir(DATA_DIR);
+  console.log(names);
+  jsonOK(res, { });
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Wiki app is serving at http://localhost:${port}`));
