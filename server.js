@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const util = require('util');
-const fs = require('fs').promises;
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
@@ -57,6 +57,12 @@ function jsonError(res, message) {
 // success response: {status:'ok', tag: 'tagName', pages: ['tagName', 'otherTagName']}
 //  file names do not have .md, just the name!
 // failure response: no failure response
+
+app.get('/api/page/all', async (req, res) => {
+  const names = await fs.readdir(DATA_DIR);
+  console.log(names);
+  jsonOK(res, { });
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Wiki app is serving at http://localhost:${port}`));
