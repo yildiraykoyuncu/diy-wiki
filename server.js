@@ -13,15 +13,9 @@ app.use(bodyParser.json());
 // app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // some helper functions you can use
-async function readFile(filePath) {
-  return await fs.readFile(filePath, 'utf-8');
-}
-async function writeFile(filePath) {
-  return await fs.writeFile(filePath, 'utf-8');
-}
-async function readDir(dirPath) {
-  return await fs.readDir(dirPath);
-}
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
+const readDir = util.promisify(fs.readdir);
 
 // some more helper functions
 const DATA_DIR = 'data';
@@ -37,15 +31,8 @@ function jsonError(res, message) {
   res.json({ status: 'error', message });
 }
 
-app.get('/', (req, res) => {
-  res.json({ wow: 'it works!' });
-});
-
 // If you want to see the wiki client, run npm install && npm build in the client folder,
-// then comment the line above and uncomment out the lines below and comment the line above.
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
+// statically serve /client/build
 
 // GET: '/api/page/:slug'
 // success response: {status: 'ok', body: '<file contents>'}
