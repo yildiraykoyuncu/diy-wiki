@@ -57,10 +57,10 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 //  file names do not have .md, just the name!
 // failure response: no failure response
 
-app.get('/api/page/all', async (req, res) => {
-  const names = await fs.readdir(DATA_DIR);
-  console.log(names);
-  jsonOK(res, { });
+// -----------
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 const port = process.env.PORT || 5000;
