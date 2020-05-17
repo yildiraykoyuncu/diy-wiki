@@ -31,8 +31,7 @@ function jsonError(res, message) {
   res.json({ status: 'error', message });
 }
 
-// If you want to see the wiki client, run npm install && npm build in the client folder,
-// statically serve /client/build
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // GET: '/api/page/:slug'
 // success response: {status: 'ok', body: '<file contents>'}
