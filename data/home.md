@@ -1,11 +1,10 @@
 # Welcome!
 
-This is your own wiki.
-
-This is how you change stuff!!
+This is your own wik
+This ishow you change stuff!!
 
 Here's the [about](about) page.
 
-#home #default
+To create a new file, just link to it and follow the link: [badging](badging)
 
-[new file](new-file)
+#home #default

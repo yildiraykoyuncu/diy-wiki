@@ -4,13 +4,16 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
+    "demo": "node demo.min.js",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.19.0",
     "cors": "2.8.5",
-    "express": "4.17.1"
+    "date-fns": "^2.16.1",
+    "express": "4.17.1",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "2.0.2"
