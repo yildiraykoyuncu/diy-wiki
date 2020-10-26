@@ -89,14 +89,10 @@ __Running the API__
 The frontend works, you don't need to change any code there.  All you need to do is run it! (and study the code a bit if you're feeling ambitious :)
 
 __Installing Dependencies__
-1. `npm install`
+1. `npm install` || `yarn install`
 
-__Running the Frontend__
-1. `npm run start`
-1. It will automatically open a new tab in your browser
-1. Explore the wiki API from the frontend app!
-
-
+__Building the Frontend__
+1. `npm run build` || `yarn build`
 
 
 [TOP](#do-it-yourself-wiki)
