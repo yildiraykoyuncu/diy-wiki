@@ -74,7 +74,6 @@ Step 0 is to clone this repo.  Then you can move on to ...
 
 ### Running the API
 
-
 __Installing Dependencies__
 1. `npm install`
 
@@ -161,7 +160,6 @@ Calling this route will return a response with a property called `tag` which ind
 ---
 
 ## Helpful Links
-
 
 
 __Debugging JS Servers In VSC__
