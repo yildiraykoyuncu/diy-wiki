@@ -70,7 +70,7 @@ You coaches will share a link to a live, working version of this wiki so you can
 
 Before you can get started writing your routes you'll want to make sure all dependencies are installed, and to make sure the frontend and backends are operational.
 
-Step 0 is to clone this repo.  Then you can move on to ...
+Step 0 is to fork and clone this repo, this repo is the starter code.  Then you can move on to ...
 
 ### Running the API
 
@@ -88,10 +88,10 @@ __Running the API__
 The frontend works, you don't need to change any code there.  All you need to do is run it! (and study the code a bit if you're feeling ambitious :)
 
 __Installing Dependencies__
-1. `npm install` || `yarn install`
+1. `npm install` or `yarn install`
 
 __Building the Frontend__
-1. `npm run build` || `yarn build`
+1. `npm run build` or `yarn build`
 
 
 [TOP](#do-it-yourself-wiki)
