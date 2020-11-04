@@ -108,8 +108,10 @@ app.get('/api/tags/all', async(req, res) => {
             content += fs.readFileSync(path.join(DATA_DIR, file), 'utf-8');
             return content
         }, '');
-        const tagNames = fileContents.match(TAG_RE).map()
-        console.log(tagNames)
+        const tagNames = fileContents.match(TAG_RE).map(tagName => {
+            return tagName.split('#').join('');
+        })
+
         res.json({ status: 'ok', tags: tagNames })
 
     } catch (err) {
@@ -125,6 +127,23 @@ app.get('/api/tags/all', async(req, res) => {
 //  success response: {status:'ok', tag: 'tagName', pages: ['tagName', 'otherTagName']}
 //  failure response: no failure response
 app.get('/api/tags/:tag', async(req, res) => {
+    const tag = req.params.tag;
+    try {
+        const files = await readDir(DATA_DIR);
+        const pages = [];
+        files.forEach(file => {
+            const fileContent = fs.readFileSync(path.join(DATA_DIR, file), 'utf-8')
+            if (fileContent.includes(tag)) {
+                pages.push(file.split('.').slice(0, -1).join(''))
+            }
+        });
+
+        res.json({ status: 'ok', tag: tag, pages: pages })
+
+    } catch (err) {
+
+
+    }
 
 });
 
