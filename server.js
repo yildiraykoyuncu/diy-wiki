@@ -81,6 +81,16 @@ app.post('/api/page/:slug', async(req, res) => {
 //  success response: {status:'ok', pages: ['fileName', 'otherFileName']}
 //  failure response: no failure response
 app.get('/api/pages/all', async(req, res) => {
+    try {
+        const pages = await readDir(DATA_DIR);
+        const fixedPageNames = pages.map(page => {
+            return page.split('.').slice(0, -1);
+        })
+        res.json({ status: 'ok', pages: fixedPageNames })
+        console.log(fixedPageNames)
+    } catch (err) {
+        console.log(err)
+    }
 
 });
 
