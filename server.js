@@ -102,6 +102,19 @@ app.get('/api/pages/all', async(req, res) => {
 //  success response: {status:'ok', tags: ['tagName', 'otherTagName']}
 //  failure response: no failure response
 app.get('/api/tags/all', async(req, res) => {
+    try {
+        const files = await readDir(DATA_DIR);
+        const fileContents = files.reduce((content, file) => {
+            content += fs.readFileSync(path.join(DATA_DIR, file), 'utf-8');
+            return content
+        }, '');
+        const tagNames = fileContents.match(TAG_RE).map()
+        console.log(tagNames)
+        res.json({ status: 'ok', tags: tagNames })
+
+    } catch (err) {
+        console.log(err)
+    }
 
 });
 
